@@ -1,10 +1,13 @@
 {
+  "type": "module",
   "name": "final-node-group-12",
   "version": "1.0.0",
   "description": "Node js server for group 12 cs5610",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "start:dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -21,5 +24,10 @@
   "bugs": {
     "url": "https://github.com/rajrishabh01/final-node-group-12/issues"
   },
-  "homepage": "https://github.com/rajrishabh01/final-node-group-12#readme"
+  "homepage": "https://github.com/rajrishabh01/final-node-group-12#readme",
+  "dependencies": {
+    "axios": "^1.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
 }
