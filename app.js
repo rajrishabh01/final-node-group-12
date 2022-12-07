@@ -4,7 +4,8 @@ import session from 'express-session'
 import RecipesController from "./controllers/recipes/recipes-controller.js";
 import mongoose from "mongoose";
 import HelloController from "./controllers/hello-controller.js";
-import UsersController from "./controllers/users/users-controller.js";
+import UsersController2 from "./controllers/users/user-controller-single.js";
+
 
 //const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://localhost:27017/whipup';
 const CONNECTION_STRING = 'mongodb://localhost:27017/whipup';
@@ -24,24 +25,23 @@ mongoose.connect(CONNECTION_STRING, options);
 console.log("Connected to MongoDB: " + CONNECTION_STRING);
 
 const app = express();
-app.options('*', cors())
-app.use(cors({
-    credentials: true,
-    origin: 'http://localhost:3000'
-}))
+// app.options('*', cors())
+// app.use(cors({
+//     credentials: true,
+//     origin: 'http://localhost:3000'
+// }))
 
-app.use(session({
-    secret: 'should be an environment variable',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false }
-}))
-
+// app.use(session({
+//     secret: 'should be an environment variable',
+//     resave: false,
+//     saveUninitialized: true,
+//     cookie: { secure: false }
+// }))
 
 app.use(express.json());
+app.use(cors());
 HelloController(app);
-UsersController(app);
-
+UsersController2(app);
 RecipesController(app);
 
 app.listen(process.env.PORT || 4000);
