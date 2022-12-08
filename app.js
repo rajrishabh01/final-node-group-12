@@ -4,9 +4,9 @@ import session from 'express-session'
 import RecipesController from "./controllers/recipes/recipes-controller.js";
 import mongoose from "mongoose";
 import HelloController from "./controllers/hello-controller.js";
-//import UsersController2 from "./controllers/users/user-controller-single.js";
 import SessionController from "./session-controller.js";
 import UsersController from "./controllers/users/users-controller.js";
+import FollowsController from "./controllers/follows/follows-controller.js";
 
 
 //const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://localhost:27017/whipup';
@@ -40,9 +40,9 @@ app.use(session({
 
 app.use(express.json());
 HelloController(app);
-//UsersController2(app);
 UsersController(app);
 RecipesController(app);
+FollowsController(app);
 SessionController(app);
 
 app.listen(process.env.PORT || 4000);
