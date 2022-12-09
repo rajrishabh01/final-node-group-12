@@ -7,6 +7,8 @@ import HelloController from "./controllers/hello-controller.js";
 import SessionController from "./session-controller.js";
 import UsersController from "./controllers/users/users-controller.js";
 import FollowsController from "./controllers/follows/follows-controller.js";
+import LikesController from "./controllers/likes/likes-controller.js";
+import ReviewsController from "./controllers/reviews/reviews-controller.js";
 
 
 //const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://localhost:27017/whipup';
@@ -43,6 +45,8 @@ HelloController(app);
 UsersController(app);
 RecipesController(app);
 FollowsController(app);
+LikesController(app);
+ReviewsController(app);
 SessionController(app);
 
 app.listen(process.env.PORT || 4000);
