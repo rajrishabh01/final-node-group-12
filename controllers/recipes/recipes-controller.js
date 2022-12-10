@@ -4,6 +4,8 @@ export const getRecipes = () => recipes;
 
 const createRecipe = async (req, res) => {
     const newRecipe = req.body
+    const currentUser = req.session['currentUser']
+    newRecipe.author = currentUser._id
     const insertedRecipe = await recipesDao
         .createRecipe(newRecipe);
     res.json(insertedRecipe);
@@ -33,8 +35,19 @@ const deleteRecipe = async (req, res) => {
     res.json(status);
 }
 
+const findRecipesById = async (req, res) => {
+    const rid = req.params.rid
+    const recipe = await recipesDao.findRecipesById(rid)
+    if (recipe) {
+        res.json(recipe)
+        return
+    }
+    res.sendStatus(404)
+}
+
 const RecipesController = (app) => {
     app.post('/api/recipes', createRecipe);
+    app.get('/api/recipes/:rid', findRecipesById);
     app.get('/api/recipes', findAllRecipes);
     app.put('/api/recipes/:rid', updateRecipe);
     app.delete('/api/recipes/:rid', deleteRecipe);
