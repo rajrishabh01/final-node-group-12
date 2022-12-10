@@ -9,9 +9,14 @@ export const createRecipe = async (recipe) => {
     return actualInsertedRecipe
 }
 export const deleteRecipe = async (rid) => {
-    const status = await recipesModel.deleteOne({_id: rid})
+    const status = await recipesModel.deleteOne({ _id: rid })
     return status
 }
 export const updateRecipe = async (rid, recipe) => {
-    await recipesModel.updateOne({_id: rid}, {$set: recipe})
+    await recipesModel.updateOne({ _id: rid }, { $set: recipe })
+}
+
+export const findRecipesById = async (rid) => {
+    const recipe = await recipesModel.findById({ _id: rid })
+    return recipe
 }
