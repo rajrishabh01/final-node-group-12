@@ -17,6 +17,6 @@ export const updateRecipe = async (rid, recipe) => {
 }
 
 export const findRecipesById = async (rid) => {
-    const recipe = await recipesModel.findById({ _id: rid })
+    const recipe = await recipesModel.findById({ _id: rid }).populate('author').exec()
     return recipe
 }
