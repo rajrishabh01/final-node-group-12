@@ -4,8 +4,8 @@ const ReviewsController = (app) => {
 
     const createReview = async (req, res) => {
         const review = req.body
-        const currentUser = req.session['currentUser']
-        review.author = currentUser._id
+        //const currentUser = req.session['currentUser']
+        //review.author = currentUser._id
         const actualReview = await dao.createReview(review)
         res.json(actualReview)
     }
