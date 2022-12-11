@@ -4,8 +4,11 @@ export const getRecipes = () => recipes;
 
 const createRecipe = async (req, res) => {
     const newRecipe = req.body
-    const currentUser = req.session['currentUser']
-    newRecipe.author = currentUser._id
+    console.log("In Create Recipe")
+    console.log(req.session)
+    console.log(req.body)
+    //const currentUser = req.session['currentUser']
+    //newRecipe.author = currentUser._id
     const insertedRecipe = await recipesDao
         .createRecipe(newRecipe);
     res.json(insertedRecipe);
