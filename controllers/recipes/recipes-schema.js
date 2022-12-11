@@ -4,6 +4,7 @@ const recipesSchema = mongoose.Schema({
     title: { type: String, required: true },
     likes: { type: Number, default: 0 },
     liked: { type: Boolean, default: false },
+    isApiCreated: {type:Boolean, default:false},
     dislikes: Number,
     rating: String,
     cateogory: { type: String, enum: ['MEXICAN', 'CHINESE', 'FRENCH'] },
