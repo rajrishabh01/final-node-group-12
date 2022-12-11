@@ -24,6 +24,6 @@ const ReviewsController = (app) => {
 
     app.post('/api/reviews', createReview)
     app.get('/api/recipes/:recipeID/reviews', findReviewsByRecipe)
-    app.get('/api/recipes/:author/reviews', findReviewsByAuthor)
+    app.get('/api/users/:author/reviews', findReviewsByAuthor)
 }
 export default ReviewsController

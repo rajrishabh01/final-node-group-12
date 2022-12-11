@@ -13,7 +13,7 @@ export const findRecipesLikedByUser = async(uid) => {
         .exec()
 }
 export const findUsersThatLikeRecipe = async(rid) => {
-    return await likesModel.find({recipe: rid}, {recipe: false})
+    return await likesModel.find({recipe: rid})
         .populate('user', 'username')
         .exec()
 }
