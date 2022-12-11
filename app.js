@@ -41,13 +41,14 @@ app.use(session({
 }))
 
 app.use(express.json());
+SessionController(app);
 HelloController(app);
 UsersController(app);
 RecipesController(app);
 FollowsController(app);
 LikesController(app);
 ReviewsController(app);
-SessionController(app);
+
 
 app.listen(process.env.PORT || 4000);
 console.log("Server started, listening on port " + (process.env.PORT || 4000));

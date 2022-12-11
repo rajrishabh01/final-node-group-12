@@ -39,6 +39,9 @@ const UsersController = (app) => {
         if(existingUser) {
             req.session['currentUser'] = existingUser
             res.json(existingUser)
+            console.log("In Login")
+            console.log(req.session)
+            console.log(req.body)
             return
         }
         res.sendStatus(403)
