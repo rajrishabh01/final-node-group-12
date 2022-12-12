@@ -48,9 +48,20 @@ const findRecipesById = async (req, res) => {
     res.sendStatus(404)
 }
 
+const findRecipesByUserId = async (req, res) => {
+    const uid = req.params.uid
+    const recipes = await recipesDao.findRecipesByUserId(uid)
+    if (recipes) {
+        res.json(recipes)
+        return
+    }
+    res.sendStatus(404)
+}
+
 const RecipesController = (app) => {
     app.post('/api/recipes', createRecipe);
     app.get('/api/recipes/:rid', findRecipesById);
+    app.get('/api/recipes/:uid/user', findRecipesByUserId);
     app.get('/api/recipes', findAllRecipes);
     app.put('/api/recipes/:rid', updateRecipe);
     app.delete('/api/recipes/:rid', deleteRecipe);
