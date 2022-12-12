@@ -19,7 +19,7 @@ const LikesController = (app) => {
     const userLikesRecipe = async (req, res) => {
         const uid = req.params.uid
         const rid = req.params.rid
-
+        console.log(rid);
         const newLike = await likesDao.userLikesRecipe(uid, rid)
         res.json(newLike)
     }
@@ -48,11 +48,11 @@ const LikesController = (app) => {
         res.json(users)
     }
 
-    app.post('/users/:uid/likes/:rid', userLikesRecipe)
-    app.delete('/users/:uid/unlikes/:rid', userUnlikesRecipe)
-    app.get('/likes', findAllLikes)
-    app.get('/users/:uid/likes', findRecipesLikedByUser)
-    app.get('/recipes/:rid/likes', findUsersWhoLikedRecipe)
+    app.post('/api/users/:uid/likes/:rid', userLikesRecipe)
+    app.delete('/api/users/:uid/unlikes/:rid', userUnlikesRecipe)
+    app.get('/api/likes', findAllLikes)
+    app.get('/api/users/:uid/likes', findRecipesLikedByUser)
+    app.get('/api/recipes/:rid/likes', findUsersWhoLikedRecipe)
 }
 
 export default LikesController;
