@@ -6,6 +6,7 @@ const recipesSchema = mongoose.Schema({
     liked: { type: Boolean, default: false },
     isApiCreated: {type:Boolean, default:false},
     dislikes: Number,
+    disliked: { type: Boolean, default: false },
     rating: String,
     cuisine: { type: String, enum: ['MEXICAN', 'CHINESE', 'FRENCH', 'AMERICAN', 'INDIAN', 'THAI'] },
     summary: String,
