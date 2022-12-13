@@ -14,9 +14,21 @@ const recipesSchema = mongoose.Schema({
         ref: 'UserModel'
     },
     dateCreated: Date,
-    //   ingredients: Array[String],
-    //   categories: Array[String],
-    //   reviews: Array[String],
+      ingredients: [
+          {
+              ingredientId: mongoose.Schema.Types.ObjectId
+          }
+      ],
+      categories: [
+          {
+              categoryId: mongoose.Schema.Types.ObjectId
+          }
+      ],
+      reviews: [
+          {
+              reviewId: mongoose.Schema.Types.ObjectId
+          }
+      ],
     recipe_instructions: String,
     recipe_image: String,
     cost_per_serving: Number
