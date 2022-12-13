@@ -7,7 +7,7 @@ const recipesSchema = mongoose.Schema({
     isApiCreated: {type:Boolean, default:false},
     dislikes: Number,
     rating: String,
-    cateogory: { type: String, enum: ['MEXICAN', 'CHINESE', 'FRENCH'] },
+    cuisine: { type: String, enum: ['MEXICAN', 'CHINESE', 'FRENCH', 'AMERICAN', 'INDIAN', 'THAI'] },
     summary: String,
     author: {
         type: mongoose.Schema.Types.ObjectId,
@@ -21,7 +21,7 @@ const recipesSchema = mongoose.Schema({
       ],
       categories: [
           {
-              categoryId: mongoose.Schema.Types.ObjectId
+              categoryName: String
           }
       ],
       reviews: [
@@ -31,6 +31,8 @@ const recipesSchema = mongoose.Schema({
       ],
     recipe_instructions: String,
     recipe_image: String,
-    cost_per_serving: Number
+    cost_per_serving: Number,
+    calories: Number,
+    preparation_time: Number
 }, { collection: 'recipes' });
 export default recipesSchema;
