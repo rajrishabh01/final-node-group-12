@@ -1,7 +1,7 @@
 import recipesModel from './recipes-model.js';
 
 export const findAllRecipes = async () => {
-    const recipes = await recipesModel.find()
+    const recipes = await recipesModel.find().populate('author').exec()
     return recipes
 }
 export const createRecipe = async (recipe) => {
