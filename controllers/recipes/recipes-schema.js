@@ -15,11 +15,7 @@ const recipesSchema = mongoose.Schema({
         ref: 'UserModel'
     },
     dateCreated: Date,
-      ingredients: [
-          {
-              ingredientId: mongoose.Schema.Types.ObjectId
-          }
-      ],
+      ingredients: {type: Array},
       categories: [
           {
               categoryName: String
