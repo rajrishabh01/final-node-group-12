@@ -8,7 +8,7 @@ const recipesSchema = mongoose.Schema({
     dislikes: Number,
     disliked: { type: Boolean, default: false },
     rating: String,
-    cuisine: { type: String, enum: ['MEXICAN', 'CHINESE', 'FRENCH', 'AMERICAN', 'INDIAN', 'THAI'] },
+    cuisine: { type: String, enum: ['MEXICAN', 'CHINESE', 'FRENCH', 'AMERICAN', 'INDIAN', 'THAI', 'ITALIAN'] },
     summary: String,
     author: {
         type: mongoose.Schema.Types.ObjectId,
