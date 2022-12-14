@@ -30,6 +30,9 @@ const recipesSchema = mongoose.Schema({
     recipe_image: String,
     cost_per_serving: Number,
     calories: Number,
-    preparation_time: Number
+    preparation_time: Number,
+    promotions: String,
+    pro_address: String
+
 }, { collection: 'recipes' });
 export default recipesSchema;
